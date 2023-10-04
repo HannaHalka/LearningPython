@@ -61,18 +61,16 @@ if not cont:
 
 annual_percent = prompt_for_int("please enter your annual percent  ", 0, 100)
 
-# this is amount that we want to get from bank
-loan_body = real_estate_cost - target_amount
-
 can_pay_monthly = prompt_for_int("please enter how much you can pay each month  ")
 
 
 months_of_loan = 1
 while True:
-    surplus = (loan_body * (annual_percent / 100)) / 12
-    surplus = months_of_loan * surplus
+    surplus = real_estate_cost * (annual_percent / 100) * months_of_loan / 12
 
-    has_to_pay_monthly = (loan_body + surplus) / months_of_loan
+    loan_body = (real_estate_cost + surplus) - target_amount
+
+    has_to_pay_monthly = loan_body / months_of_loan
 
     if has_to_pay_monthly <= can_pay_monthly:
         print('you need to take a loan for', months_of_loan, 'months')

@@ -62,13 +62,10 @@ if not cont:
 years_of_loan = prompt_for_int("please enter how many years of lending ")
 annual_percent = prompt_for_int("please enter your annual percent  ", 0, 100)
 
-# this is amount that we want to get from bank
-loan_body = real_estate_cost - target_amount
-
 # this is amount that has to be paid on top of lending body
-surplus = loan_body * (annual_percent / 100) * years_of_loan
-has_to_pay_monthly = (loan_body + surplus) / years_of_loan / 12
-
+surplus = real_estate_cost * (annual_percent / 100) * years_of_loan
+loan_body = (real_estate_cost + surplus) - target_amount
+has_to_pay_monthly = loan_body / years_of_loan / 12
 
 if has_to_pay_monthly > can_save_monthly:
     print('loan is impossible :(')
