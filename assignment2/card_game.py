@@ -27,10 +27,10 @@ def valid_input(coord):
             print('Please enter numerical value!')
             continue
         int_coo = int(input_coo)
-        if 3 < int_coo or int_coo < 0:  # we have 4x4 board
+        if 4 < int_coo or int_coo < 1:  # we have 4x4 board
             print('Please enter number in interval 0-3!')
             continue
-        return int_coo
+        return int_coo - 1
 
 
 
@@ -63,8 +63,8 @@ def remove_cards(board, coords):
 
 def card_is_not_removed(board):
     while True:
-        row = valid_input('Please enter the row (0-3): ')
-        col = valid_input('Please enter the column (0-3): ')
+        row = valid_input('Please enter the row (1-4): ')
+        col = valid_input('Please enter the column (1-4): ')
         if board[row][col] == ' ':
             print("This card is already removed!")
             continue
