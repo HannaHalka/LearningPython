@@ -3,7 +3,7 @@ import os
 from time import sleep
 
 medium_violet_red = '\033[95m'
-bgcolor = '\033[38;5;214m'
+bgcolor = '\033[38;5;1m'
 orange_red = '\033[38;5;214m'
 yellow = '\033[93m'
 green = '\033[92m'
