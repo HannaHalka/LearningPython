@@ -28,10 +28,9 @@ def valid_input(coord):
             continue
         int_coo = int(input_coo)
         if 4 < int_coo or int_coo < 1:  # we have 4x4 board
-            print('Please enter number in interval 0-3!')
+            print('Please enter number in interval 1-4!')
             continue
         return int_coo - 1
-
 
 
 def init_board(size):
@@ -58,14 +57,14 @@ def open_card(board, secret_board, i, j):
 
 def remove_cards(board, coords):
     for i, j in coords:
-        board[i][j] = ' '
+        board[i][j] = '_'
 
 
 def card_is_not_removed(board):
     while True:
         row = valid_input('Please enter the row (1-4): ')
         col = valid_input('Please enter the column (1-4): ')
-        if board[row][col] == ' ':
+        if board[row][col] == '_':
             print("This card is already removed!")
             continue
         return row, col
@@ -74,7 +73,7 @@ def card_is_not_removed(board):
 def win(board):
     for row in board:
         for item in row:
-            if item != ' ':
+            if item != '_':
                 return False
     return True
 
@@ -120,4 +119,3 @@ while True:
               sep='', end=' ')
         print(f'You find all cards in {your_rty} try')
         break
-
