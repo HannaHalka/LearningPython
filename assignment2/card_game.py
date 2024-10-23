@@ -2,6 +2,13 @@ import random
 import os
 from time import sleep
 
+later_to_int = {
+    'A': 0, 'a': 0,
+    'B': 1, 'b': 1,
+    'C': 2, 'c': 2,
+    'D': 3, 'd': 3,
+}
+
 medium_violet_red = '\033[95m'
 bgcolor = '\033[38;5;1m'
 orange_red = '\033[38;5;214m'
@@ -18,6 +25,16 @@ def clear_console():
         _ = os.system('cls')
     else:
         _ = os.system('clear')
+
+
+def valid_input_later(coord):
+    while True:
+        input_coo = input(coord)
+        if input_coo not in ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd']:
+            print('Please enter one later from A to D!')
+            continue
+        int_coo = later_to_int[input_coo]
+        return int_coo
 
 
 def valid_input(coord):
@@ -62,7 +79,7 @@ def remove_cards(board, coords):
 
 def card_is_not_removed(board):
     while True:
-        row = valid_input('Please enter the row (1-4): ')
+        row = valid_input_later('Please enter the row (A-D): ')
         col = valid_input('Please enter the column (1-4): ')
         if board[row][col] == '_':
             print("This card is already removed!")
